@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/avatar-negro.png" />
+    <title>AskIFC Browser</title>
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <main id="layout">
+      <section id="stage">
+        <div id="viewport"></div>
+
+        <button id="brand" class="avatar-toggle" type="button"
+                title="Switch between dark and light">
+          <img src="/avatar-negro.png" alt="Switch theme" />
+        </button>
+
+        <div id="dropzone">
+          <div class="dropzone-inner" id="dropzone-card" role="button" tabindex="0">
+            <button id="theme-toggle" class="avatar-toggle" type="button"
+                    title="Switch between dark and light">
+              <img class="dropzone-logo" src="/avatar-crema.png" alt="Switch theme" />
+            </button>
+            <h1>AskIFC Browser</h1>
+            <p class="byline">by Gonzalo JL</p>
+            <p>Drop an IFC file here, or click to browse</p>
+          </div>
+          <input id="file-input" type="file" accept=".ifc" hidden />
+        </div>
+
+        <div id="dock">
+          <aside id="panel">
+            <button id="panel-head" type="button">
+              <svg class="panel-spark" viewBox="0 0 24 24" fill="currentColor"
+                   aria-hidden="true">
+                <path d="M12 2l1.9 5.6L19.5 9.5 13.9 11.4 12 17l-1.9-5.6L4.5 9.5l5.6-1.9L12 2z" />
+                <path d="M18.5 14.5l.85 2.15 2.15.85-2.15.85-.85 2.15-.85-2.15L15.5 17.5l2.15-.85.85-2.15z" />
+              </svg>
+              <span id="panel-title">Ask AI about this model</span>
+              <svg class="panel-caret" viewBox="0 0 24 24" fill="none"
+                   stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                   stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 15l6-6 6 6" />
+              </svg>
+            </button>
+
+            <div id="panel-body">
+            <div id="chat-log">
+              <div id="chat-empty">
+                <p id="chat-empty-text"></p>
+
+                <form id="key-form" hidden>
+                  <div class="key-row">
+                    <input
+                      id="key-input"
+                      type="password"
+                      autocomplete="off"
+                      spellcheck="false"
+                      placeholder="sk-ant-…"
+                    />
+                    <button type="submit">Save</button>
+                  </div>
+                  <p class="hint">
+                    Your Anthropic API key stays in this browser. It is sent only to
+                    Anthropic, never to anyone else.
+                  </p>
+                </form>
+              </div>
+            </div>
+
+            <form id="chat-form">
+              <textarea
+                id="chat-input"
+                rows="2"
+                placeholder="Ask about this model…"
+                disabled
+              ></textarea>
+              <button id="chat-send" type="submit" disabled>Ask</button>
+            </form>
+            </div>
+          </aside>
+        </div>
+
+        <div id="dock-left">
+          <div id="status" hidden></div>
+
+          <aside id="props" hidden>
+            <header id="props-head">
+              <div class="props-title">
+                <p id="props-name"></p>
+                <p id="props-cat"></p>
+              </div>
+              <button id="props-close" type="button" title="Close (Esc)">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6L6 18" />
+                </svg>
+              </button>
+            </header>
+            <div id="props-body"></div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

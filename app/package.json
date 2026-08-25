@@ -1,0 +1,30 @@
+{
+  "name": "askifc-browser",
+  "version": "1.0.0",
+  "description": "Drop an IFC in your browser, see it in 3D, and ask an AI about it.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "ifc",
+    "bim",
+    "openbim",
+    "viewer",
+    "claude",
+    "ai"
+  ],
+  "author": "Gonzalo JL",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.120.0",
+    "@thatopen/components": "^3.4.8",
+    "@thatopen/components-front": "^3.4.4",
+    "three": "^0.185.1",
+    "vite": "^8.2.2",
+    "web-ifc": "^0.0.77"
+  },
+  "private": true
+}
